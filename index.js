@@ -45,7 +45,7 @@ function swapRequire(code, newRequireName, options) {
   return chunks.join('');
 }
 
-function dynloadify(file, options) {
+function swap(file, options) {
   var swappingTo = options.fn || 'dynRequire';
   var chunks = [];
   var stream = through(write, end);
@@ -68,4 +68,4 @@ function dynloadify(file, options) {
   return stream;
 }
 
-module.exports = dynloadify;
+module.exports = swap;
