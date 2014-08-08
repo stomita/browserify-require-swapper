@@ -11,7 +11,7 @@ npm install require-swapper browserify
 
 ## Usage ##
 
-Require-swapper swaps all CommonJS `require()` function calls in your code to specified custom function, or for certain module which matches 
+Require-swapper swaps all CommonJS `require()` function calls in your code to specified custom function, or for certain module which matches given target module list.
 
 
 ## Example ###
