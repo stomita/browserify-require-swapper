@@ -56,7 +56,7 @@ describe("require-swapper", function() {
     browserify([ './index.js' ])
       .transform(swapper, {
         fn: 'dynreq',
-        modules: 'dir2/**/*'
+        modules: './dir2/**/*'
       })
       .bundle(function(err, code) {
         if (err) { return done(err); }

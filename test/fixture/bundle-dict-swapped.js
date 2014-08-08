@@ -8,7 +8,7 @@ module.exports = function() {
   print(translate("apple"));
 };
 },{"./dir1/translate":2,"./print":4,"mymodule1":3}],2:[function(require,module,exports){
-var dict = dynreq('../dir2/dict');
+var dict = dynreq('./dir2/dict');
 
 module.exports = function(name) {
   return dict[name] || "(not found)"
