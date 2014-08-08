@@ -16,7 +16,7 @@ Require-swapper swaps all CommonJS `require()` function calls in your code to sp
 
 ## Example ###
 
-Suppose you have following index.js and swapping require function to "dyrequire" for module `aaa`,
+Suppose you have following index.js and swapping require function to `myrequire()` for module `aaa`,
 
 ``` javascript
 var aaa = require('aaa')
@@ -54,7 +54,7 @@ browserify index.js -t [ require-swapper --fn 'myrequire' --module 'aaa'  ] > bu
 
 **options.fn**
 
-Specify function name to swap `require()` call. For example
+Specify your custom function name to swap `require()` call.
 
 **options.modules**
 
