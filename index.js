@@ -56,6 +56,7 @@ function swap(file, options) {
     var code = chunks.join('');
     try {
       code = swapRequire(code, swappingTo, {
+        cwd: options.cwd || process.cwd(),
         targetModules: options.module || options.modules,
         file: file
       });
