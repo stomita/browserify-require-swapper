@@ -1,0 +1,27 @@
+{
+  "name": "require-swapper",
+  "version": "0.1.0",
+  "description": "Swap CommonJS require call to custom function call.",
+  "main": "index.js",
+  "author": "Shinichi Tomita <shinichi.tomita@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "test": "mocha test/index.test.js --require intelli-espower-loader"
+  },
+  "directories": {
+    "test": "test/"
+  },
+  "dependencies": {
+    "estraverse": "^1.5.1",
+    "esprima": "^1.2.2",
+    "minimatch": "^1.0.0",
+    "through": "^2.3.4",
+    "type-name": "^1.0.0"
+  },
+  "devDependencies": {
+    "browserify": "^5.9.1",
+    "power-assert": "^0.7.2",
+    "espower-loader": "^0.7.1",
+    "intelli-espower-loader": "^0.2.0"
+  }
+}

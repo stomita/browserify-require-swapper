@@ -1,0 +1,11 @@
+{
+  "name": "my-project",
+  "version": "0.1.0",
+  "private": true,
+  "description": "",
+  "main": "index.js",
+  "author": "",
+  "dependencies": {
+    "mymodule1": "*"
+  }
+}
