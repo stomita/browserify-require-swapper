@@ -1,4 +1,5 @@
-# browserify-require-swapper [![Build Status](https://secure.travis-ci.org/stomita/browserify-require-swapper.png?branch=master)](http://travis-ci.org/stomita/browserify-require-swapper)
+# browserify-require-swapper 
+[![Build Status](https://secure.travis-ci.org/stomita/browserify-require-swapper.png?branch=master)](http://travis-ci.org/stomita/browserify-require-swapper)
 
 [Browserify](http://browserify.org) v2 transform to swap CommonJS require call to custom function call
 
