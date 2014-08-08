@@ -5,23 +5,37 @@ var path = require('path');
 var minimatch = require('minimatch');
 var typeName = require('type-name');
 
+function debug() {
+  if (process.env.DEBUG) { console.log.apply(console, arguments); }
+}
+
 function isDynamicModule(moduleName, options) {
   if (options.targetModules) {
     if (moduleName[0] === ".") {
       moduleName = path.resolve(path.dirname(options.file), moduleName);
-      moduleName = path.relative(process.cwd(), moduleName);
+      moduleName = "./" + path.relative(options.baseDir, moduleName);
     }
     var patterns = options.targetModules;
     patterns = typeName(patterns) === 'Array' ? patterns : [ patterns ];
     for (var i=0, len=patterns.length; i<len; i++) {
       var pattern = patterns[i];
+      debug("**** pattern : ", pattern, " => module : ", moduleName, "*****");
       if (/[\*\?\!\{\}]/.test(pattern) ? minimatch(moduleName, pattern) : moduleName === pattern) {
+        debug(" <<< matched >>> ");
         return true;
       }
     }
   } else {
     return true;
   }
+}
+
+function fixModulePath(moduleName, options) {
+  if (moduleName[0] === ".") {
+    moduleName = path.resolve(path.dirname(options.file), moduleName);
+    moduleName = "./" + path.relative(options.baseDir, moduleName);
+  }
+  return moduleName;
 }
 
 function swapRequire(code, newRequireName, options) {
@@ -34,9 +48,9 @@ function swapRequire(code, newRequireName, options) {
           parent.arguments.length === 1 && parent.arguments[0].type === 'Literal') {
         var moduleName = parent.arguments[0].value;
         if (isDynamicModule(moduleName, options)) {
-          chunks.push(code.substring(start, node.range[0]));
-          chunks.push(newRequireName);
-          start = node.range[1];
+          chunks.push(code.substring(start, parent.range[0]));
+          chunks.push(newRequireName + "('" + fixModulePath(moduleName, options) + "')");
+          start = parent.range[1];
         }
       }
     }
@@ -56,7 +70,7 @@ function swap(file, options) {
     var code = chunks.join('');
     try {
       code = swapRequire(code, swappingTo, {
-        cwd: options.cwd || process.cwd(),
+        baseDir: options.baseDir || process.cwd(),
         targetModules: options.module || options.modules,
         file: file
       });
