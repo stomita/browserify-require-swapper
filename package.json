@@ -8,6 +8,10 @@
   "scripts": {
     "test": "mocha test/index.test.js --require intelli-espower-loader"
   },
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/stomita/browserify-require-swapper.git"
+  },
   "directories": {
     "test": "test/"
   },
