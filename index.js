@@ -48,12 +48,10 @@ function swapRequire(code, newRequireName, options) {
           parent.arguments.length === 1 && parent.arguments[0].type === 'Literal') {
         var moduleName = parent.arguments[0].value;
         if (isDynamicModule(moduleName, options)) {
-          console.log(moduleName, ' is dynamic');
+          console.log(moduleName, ' = dynamic');
           chunks.push(code.substring(start, parent.range[0]));
           chunks.push(newRequireName + "('" + fixModulePath(moduleName, options) + "')");
           start = parent.range[1];
-        } else {
-          console.log(moduleName, ' is not dynamic');
         }
       }
     }
