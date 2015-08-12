@@ -63,6 +63,9 @@ function swapRequire(code, newRequireName, options) {
 }
 
 function swap(file, options) {
+  if (/\.json$/.test(file)) {
+    return through();
+  }
   var swappingTo = options.fn || 'dynRequire';
   var chunks = [];
   var stream = through(write, end);

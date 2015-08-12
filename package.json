@@ -19,10 +19,10 @@
     "type-name": "^1.0.0"
   },
   "devDependencies": {
-    "browserify": "^5.9.1",
-    "power-assert": "^0.7.2",
-    "espower-loader": "^0.7.1",
-    "intelli-espower-loader": "^0.2.0",
-    "mocha": "^1.21.4"
+    "browserify": "^11.0.1",
+    "espower-loader": "^0.10.0",
+    "intelli-espower-loader": "^0.6.0",
+    "mocha": "^2.2.5",
+    "power-assert": "^0.11.0"
   }
 }
