@@ -1,6 +1,6 @@
 {
   "name": "require-swapper",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "Swap CommonJS require call to custom function call.",
   "main": "index.js",
   "author": "Shinichi Tomita <shinichi.tomita@gmail.com>",
