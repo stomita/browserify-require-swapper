@@ -11,10 +11,7 @@ function debug() {
 
 function isDynamicModule(moduleName, options) {
   if (options.targetModules) {
-    if (moduleName[0] === ".") {
-      moduleName = path.resolve(path.dirname(options.file), moduleName);
-      moduleName = "./" + path.relative(options.baseDir, moduleName);
-    }
+    moduleName = fixModulePath(moduleName, options);
     var patterns = options.targetModules;
     patterns = typeName(patterns) === 'Array' ? patterns : [ patterns ];
     for (var i=0, len=patterns.length; i<len; i++) {
@@ -33,7 +30,8 @@ function isDynamicModule(moduleName, options) {
 function fixModulePath(moduleName, options) {
   if (moduleName[0] === ".") {
     moduleName = path.resolve(path.dirname(options.file), moduleName);
-    moduleName = "./" + path.relative(options.baseDir, moduleName);
+    moduleName = path.relative(options.baseDir, moduleName);
+    moduleName = moduleName[0] === "." ? moduleName : "./" + moduleName;
   }
   return moduleName;
 }
