@@ -16,17 +16,17 @@
     "test": "test/"
   },
   "dependencies": {
-    "estraverse": "^1.5.1",
     "esprima": "^1.2.2",
-    "minimatch": "^1.0.0",
+    "estraverse": "^1.5.1",
+    "minimatch": "^3.0.4",
     "through": "^2.3.4",
     "type-name": "^1.0.0"
   },
   "devDependencies": {
-    "browserify": "^11.0.1",
-    "espower-loader": "^0.10.0",
+    "browserify": "^16.2.2",
+    "espower-loader": "^1.2.2",
     "intelli-espower-loader": "^0.6.0",
-    "mocha": "^2.2.5",
+    "mocha": "^5.2.0",
     "power-assert": "^0.11.0"
   }
 }
